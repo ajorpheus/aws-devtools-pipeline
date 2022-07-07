@@ -1,0 +1,23 @@
+version = 0.1
+[prod]
+[prod.deploy]
+[prod.deploy.parameters]
+stack_name = "test-deploy-wrncl-uuid-api"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1d2tmxp6cl2b4"
+s3_prefix = "test-deploy-wrncl-uuid-api"
+region = "eu-west-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "ExecEnv=\"prod\" UUIDDynamoDBTableName=\"uuid-job-name-map\" ApplicationName=\"wrncl-uuid-api\" SubnetAZ=\"eu-west-2a\""
+image_repositories = []
+
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "test-deploy-wrncl-uuid-api"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1d2tmxp6cl2b4"
+s3_prefix = "test-deploy-wrncl-uuid-api"
+region = "eu-west-2"
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "ExecEnv=\"prod\" UUIDDynamoDBTableName=\"uuid-job-name-map\" ApplicationName=\"wrncl-uuid-api\" SubnetAZ=\"eu-west-2a\""
+image_repositories = []

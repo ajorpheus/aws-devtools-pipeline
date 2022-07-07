@@ -1,0 +1,34 @@
+---
+checks:
+  - code: CUS001
+    description: Check if aws_api_gateway_method_settings has logging_level enabled
+    requiredTypes:
+      - resource
+    requiredLabels:
+      - aws_api_gateway_method_settings
+    severity: ERROR
+    matchSpec:
+      name: settings
+      action: isPresent
+      subMatch:
+        name: logging_level
+        action: equals
+        value: INFO
+    errorMessage: The required logging_level is not present or does not have the required value
+
+
+  - code: CUS002
+    description: Check if aws_api_gateway_method_settings has metrics_enabled
+    requiredTypes:
+      - resource
+    requiredLabels:
+      - aws_api_gateway_method_settings
+    severity: ERROR
+    matchSpec:
+      name: settings
+      action: isPresent
+      subMatch:
+        name: metrics_enabled
+        action: equals
+        value: true
+    errorMessage: The required metrics_enabled is either not present or does not have the required value

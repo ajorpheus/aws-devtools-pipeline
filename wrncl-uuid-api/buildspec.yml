@@ -1,0 +1,31 @@
+version: 0.2
+
+env:
+  variables:
+    SAM_CLI_TELEMETRY: "0"
+    WORKING_DIR: "wrncl-uuid-api"
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+
+  pre_build:
+    commands:
+      - cd "$WORKING_DIR"
+      - ls -laR
+
+  build:
+    commands:
+      - sam build
+
+  post_build:
+    commands:
+      - sam package --output-template-file outputTemplate.yaml --s3-bucket aws-sam-cli-managed-default-samclisourcebucket-1d2tmxp6cl2b4
+      - pwd
+      - ls -la
+
+artifacts:
+  discard-paths: yes
+  files:
+    - '$WORKING_DIR/outputTemplate.yaml'

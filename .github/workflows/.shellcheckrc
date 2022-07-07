@@ -1,0 +1,4 @@
+disable=SC1091
+disable=SC1090
+shell=bash
+external-sources=true
